@@ -1,0 +1,97 @@
+﻿<Window x:Class="PorjectDepartmentIT.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PorjectDepartmentIT"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Title="MainWindow" Height="717.708" Width="1214.584" Loaded="AppWindow_Loaded" Closed="AppWindow_Closed">
+    <Grid Margin="0,0,-6,0">
+        
+       <!--
+        Комментарии к свойствам Windiw:
+            ResizeMode="NoResize" - Запрет масштабирования
+            WindowStartupLocation="CenterScreen" - положения окна на экране при запуске
+        -->
+        
+        <DataGrid x:Name="myDataGrid" HorizontalAlignment="Left" Margin="330,25,0,0" VerticalAlignment="Top" Height="512" Width="569" SelectionChanged="myDataGrid_SelectionChanged" Background="White"/>
+
+        <!--AI-->
+
+        <Label x:Name="lbl_connection" Content="Connection" HorizontalAlignment="Left" Margin="30,581,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_attention" Content="Attention" HorizontalAlignment="Left" Margin="51,250,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tb_Colum1" HorizontalAlignment="Left" Height="23" Margin="153,290,0,0" TextWrapping="Wrap" Text ="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Colum2" HorizontalAlignment="Left" Height="23" Margin="153,318,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Colum3" HorizontalAlignment="Left" Height="23" Margin="153,346,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Colum4" HorizontalAlignment="Left" Height="23" Margin="153,374,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_Colum5" HorizontalAlignment="Left" Height="23" Margin="153,404,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb_id" HorizontalAlignment="Left" Height="23" Margin="287,514,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="28" IsEnabled="False"/>
+
+        <GroupBox x:Name="groupBox" Header="Работа с таблицами" HorizontalAlignment="Left" Height="205" Margin="30,25,0,0" VerticalAlignment="Top" Width="268"/>
+        <Label x:Name="label6" Content="Выберите БД:" HorizontalAlignment="Left" Margin="76,49,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="add_btn" Content="ADD" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="76,155,0,0" VerticalAlignment="Top" Width="75" Background="#FF8FBEEE" Foreground="White" Click="add_btn_Click"/>
+        <Button x:Name="update_btn" Content="UPDATE" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="178,155,0,0" VerticalAlignment="Top" Width="75" Background="#FF8FBEEE" Foreground="White" Click="update_btn_Click"/>
+        <Button x:Name="delete_btn" Content="DELETE" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="76,190,0,0" VerticalAlignment="Top" Width="75" Background="#FF8FBEEE" Foreground="White" Click="delete_btn_Click"/>
+        <Button x:Name="Reset_btn" Content="RESET" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="178,190,0,0" VerticalAlignment="Top" Width="75" Background="#FF8FBEEE" Foreground="White" Click="Reset_btn_Click"/>
+        <Button x:Name="Open_btn" Content="OPEN" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" Margin="76,117,0,0" VerticalAlignment="Top" Width="177" Background="#FFC0C2C5" Foreground="White" Click="Open_btn_Click" IsEnabled="False"/>
+
+        <ComboBox x:Name="comboBox"  
+                  HorizontalAlignment="Left" Margin="76,79,0,0" 
+                  VerticalAlignment="Top" Width="177" DropDownClosed="comboBox_DropDownClosed"
+                  SelectedIndex="0">
+            <TextBlock>Выберете БД:</TextBlock>
+            <TextBlock>Employees</TextBlock>
+            <TextBlock>PPC</TextBlock>
+            <TextBlock>SubDivision</TextBlock>
+            <TextBlock>Order</TextBlock>
+            <TextBlock>Staff</TextBlock>
+        </ComboBox>
+
+        <Label x:Name="lbl_Colum1" Content="Colum1" HorizontalAlignment="Left" Margin="51,290,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Colum2" Content="Colum2" HorizontalAlignment="Left" Margin="51,316,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Colum3" Content="Colum3" HorizontalAlignment="Left" Margin="51,346,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Colum4" Content="Colum4" HorizontalAlignment="Left" Margin="51,374,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Colum5" Content="Colum5" HorizontalAlignment="Left" Margin="51,404,0,0" VerticalAlignment="Top"/>
+
+        <ComboBox x:Name="cb_status" HorizontalAlignment="Left" Margin="153,458,0,0" VerticalAlignment="Top" Width="120">
+            <TextBlock>В очереди</TextBlock>
+            <TextBlock>Обрабатывается</TextBlock>
+            <TextBlock>Выполнение</TextBlock>
+            <TextBlock>Отклонена</TextBlock>
+            <TextBlock>Отменена</TextBlock>
+            <TextBlock>Закрыта</TextBlock>
+        </ComboBox>
+
+        <DatePicker HorizontalAlignment="Left" Margin="153,512,0,0" VerticalAlignment="Top" Width="120"/>
+
+        <!--AI end-->
+
+
+        <!--UI-->
+        <StackPanel x:Name="user_Panel" HorizontalAlignment="Left" Height="520" Margin="930,23,0,0" VerticalAlignment="Top" Width="259">
+
+            <TextBlock x:Name="textBlock" Margin ="5 5 0 15" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Заполнение заявки на техническое обслуживание" VerticalAlignment="Top" FontWeight="Bold"/>
+            <Label x:Name="u_lbl_Colum1" Margin ="5 0 0 0" Content="Регистрационный номер пользователя:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="u_tb_Colum1" Margin ="5 0 0 15" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="u_lbl_Colum2" Margin ="5 0 0 0" Content="Регистрационный номер компьютера:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="u_tb_Colum2" Margin ="5 0 0 15" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Label x:Name="u_lbl_Colum3" Margin ="5 0 0 0" Content="Описание проблемы:" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            <TextBox x:Name="u_tb_Colum3" Margin ="5 0 0 0" HorizontalAlignment="Left" Height="131" TextWrapping="Wrap" ScrollViewer.VerticalScrollBarVisibility="Auto"  Text="" VerticalAlignment="Top" Width="246"/>
+            <Label x:Name="lbl_attention_user" Margin ="5 0 0 130" Content="Attention" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="u_add_btn" Margin ="50 0 10 0 " Content="ADD" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Background="#FF8FBEEE" Foreground="White" Click="us_add_btn_Click"/>
+                <Button x:Name="u_reset_btn" Content="RESET" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Background="#FF8FBEEE" Foreground="White" Click="us_Reset_btn_Click"/>
+            </StackPanel>
+
+        </StackPanel>
+
+        <Label x:Name="lbl_name_user" Content="Login" HorizontalAlignment="Left" Margin="982,589,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lbl_Welcome" Content="Welcome" HorizontalAlignment="Left" Margin="879,589,0,0" VerticalAlignment="Top"/>
+
+        <!--UI end-->
+    </Grid>
+</Window>
